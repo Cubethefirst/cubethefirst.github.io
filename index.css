@@ -25,7 +25,7 @@
         .container {
             background-color: var(--card-bg);
             width: 100%;
-            max-width: 750px;
+            max-width: 650px;
             border-radius: var(--radius);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             padding: 2rem;
@@ -40,6 +40,31 @@
             gap: 10px;
         }
 
+        .sort-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .sort-select {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background-color: #fff;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .sort-select:focus {
+            border-color: var(--primary);
+        }
         .status {
             font-size: 0.8rem;
             color: #10b981;
@@ -121,6 +146,7 @@
             border-radius: 8px;
             font-size: 1rem;
             outline: none;
+            width: 4%;
         }
 
         input:focus {

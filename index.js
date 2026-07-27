@@ -30,16 +30,36 @@
             renderInventory();
         });
 
+        sortSelect.addEventListener('change', renderInventory);
+
         // Liste im HTML ausgeben
         function renderInventory() {
             inventoryListElement.innerHTML = '';
 
             if (inventory.length === 0) {
-                inventoryListElement.innerHTML = '<li style="text-align:center; color:#6b7280; padding:1rem;">Noch keine Artikel. Trage oben oder unten etwas ein!</li>';
+                inventoryListElement.innerHTML = '<li style="text-align:center; color:#6b7280; padding:1rem;">Noch keine Artikel vorhanden!</li>';
                 return;
             }
 
-            inventory.forEach(item => {
+            // Kopie des Arrays machen, um die Ausgangsdaten nicht zu verändern
+            let sortedInventory = [...inventory];
+            const sortValue = sortSelect.value;
+
+            // NEU: Sortier-Algorithmus
+            sortedInventory.sort((a, b) => {
+                if (sortValue === 'name-asc') {
+                    return a.name.localeCompare(b.name, 'de', { sensitivity: 'base' });
+                } else if (sortValue === 'name-desc') {
+                    return b.name.localeCompare(a.name, 'de', { sensitivity: 'base' });
+                } else if (sortValue === 'qty-desc') {
+                    return b.quantity - a.quantity;
+                } else if (sortValue === 'qty-asc') {
+                    return a.quantity - b.quantity;
+                }
+            });
+
+            // Ausgabe der sortierten Liste
+            sortedInventory.forEach(item => {
                 const li = document.createElement('li');
                 li.className = 'inventory-item';
                 

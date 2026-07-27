@@ -15,10 +15,20 @@
 
         <form class="add-form" id="addForm">
             <input type="text" id="newItemName" placeholder="Neues Produkt (z.B. Fachinger)" required>
-            <input type="number" id="newItemQuantity" placeholder="Anzahl" value="1" min="0" style="width: 70px;" required>
+            <input type="number" id="newItemQuantity" placeholder="Anzahl" value="1" min="0" style="width: 4%;" required>
             <button type="submit" class="btn-primary">Hinzufügen</button>
         </form>
-        
+        <br>
+        <div class="sort-bar">
+            <span>Sortieren:</span>
+            <select id="sortSelect" class="sort-select">
+                <option value="name-asc">Name (A–Z)</option>
+                <option value="name-desc">Name (Z–A)</option>
+                <option value="qty-desc">Anzahl (Höchste zuerst)</option>
+                <option value="qty-asc">Anzahl (Niedrigste zuerst)</option>
+            </select>
+        </div>
+
         <ul class="inventory-list" id="inventoryList">
             <li style="text-align:center; color:#6b7280;">Lade Daten...</li>
         </ul>
